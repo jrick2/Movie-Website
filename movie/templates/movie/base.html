@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Code-Abe</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+  </head>
+  <body>
+    <nav class="header">
+      <h1 class="nav-title">Code-Abe</h1>
+      <input type="text" placeholder="Search">
+      <ul class="nav-links">
+        <li>
+            <a href="#"></a>
+        </li>
+
+        <li>
+            <a href="{% url 'sign_up' %}">Sign Up</a>
+        </li>
+
+        <li>
+            <a href="{% url 'login' %}">Login</a>
+        </li>
+
+        <li>
+            <a href="#">Watch List</a>
+        </li>
+        {% if user.is_authenticated %}
+        
+        <li>
+          <a href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% endif %}
+      </ul>
+
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+    
+    <script src="{% static 'styles/main.js' %}"></script>
+
+    {% block body %}
+    
+    {% endblock %}
+  </body>
+</html> 
